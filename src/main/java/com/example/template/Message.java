@@ -1,17 +1,17 @@
 package com.example.template;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 public class Message {
 
     private Long id;
     private String content;
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
     public Message() {
     }
 
-    public Message(Long id, String content, LocalDateTime createdAt) {
+    public Message(Long id, String content, OffsetDateTime createdAt) {
         this.id = id;
         this.content = content;
         this.createdAt = createdAt;
@@ -34,11 +34,11 @@ public class Message {
         this.content = content;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 }
