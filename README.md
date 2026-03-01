@@ -5,9 +5,10 @@ A production-ready Spring Boot template designed for fast deployment to Google C
 ## Features
 - **Spring Boot 3.4.1** & **Java 21**.
 - **PostgreSQL Persistence**: Uses `JdbcTemplate` for lightweight, direct SQL interaction.
+- **Database Migrations (Flyway)**: Automated, versioned schema management out of the box.
 - **Cloud SQL Integration**: Native support via Spring Cloud GCP.
 - **Zero-Conf Deployment**: Optimized `Dockerfile` for Cloud Run.
-- **Local Dev Support**: Pre-configured H2 database profile.
+- **Local Dev Support**: Pre-configured H2 database profile with Flyway support.
 
 ## Quick Start (Cloud)
 
@@ -32,13 +33,18 @@ Run the application locally using the `local` profile (uses in-memory H2):
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
+### Database Migrations
+This project uses **Flyway** for database migrations. 
+- Place all migration scripts in: `src/main/resources/db/migration/`
+- Use the versioning format: `V1__description.sql`, `V2__another_change.sql`.
+
 ### API Endpoints
 - `GET /`: Health check.
 - `POST /messages`: Save a message (send raw text in body).
 - `GET /messages`: List all saved messages.
 
 ## Project Structure
-- `src/main/resources/schema.sql`: Table definitions automatically applied on startup.
+- `src/main/resources/db/migration/`: All SQL schema and data migrations.
 - `application-local.properties`: Development overrides for local H2 use.
 - `Dockerfile`: Multi-stage build for minimal container size.
 
