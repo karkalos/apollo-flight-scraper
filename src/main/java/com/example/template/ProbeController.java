@@ -1,22 +1,23 @@
 package com.example.template;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import jakarta.persistence.EntityManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProbeController {
 
-    private final JdbcTemplate jdbcTemplate;
+    private final EntityManager entityManager;
 
-    public ProbeController(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public ProbeController(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @GetMapping("/db-check")
     public String check() {
         try {
-            return "Database Time: " + jdbcTemplate.queryForObject("SELECT NOW()", String.class);
+            Object result = entityManager.createNativeQuery("SELECT NOW()").getSingleResult();
+            return "Database Time: " + result;
         } catch (Exception e) {
             return "Database Connection Failed: " + e.getMessage();
         }

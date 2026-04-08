@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>gcp-spring-boot-template</artifactId>
+	<artifactId>apollo-flight-scraper</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>GCP Spring Boot Template</name>
-	<description>Generic template for Spring Boot applications on Google Cloud</description>
+	<name>Apollo Flight Scraper</name>
+	<description>Flight deal tracker that scrapes Apollo.se for cheap flights</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -54,7 +54,18 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Selenium for headless browser scraping -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.9.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.flywaydb</groupId>
