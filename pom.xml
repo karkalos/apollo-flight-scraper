@@ -8,7 +8,7 @@
 		<version>3.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>se.karkalos</groupId>
 	<artifactId>apollo-flight-scraper</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Apollo Flight Scraper</name>

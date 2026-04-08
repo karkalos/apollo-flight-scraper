@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: apollo-flight-scraper
+  description: Flight price scraper using Apollo API
+spec:
+  type: service
+  owner: karkalos
+  lifecycle: experimental
+  system: personal
